@@ -2,11 +2,11 @@ import psycopg2
 
 # Database connection parameters
 db_params = {
-    "dbname": "your_database_name",
-    "user": "your_username",
-    "password": "your_password",
-    "host": "localhost",  # Change to your PostgreSQL host
-    "port": "5432",       # Change to your PostgreSQL port
+    "dbname": "BabynamesDB",
+    "user": "Dominion",
+    "password": "xdgureefhjikgdsdhhjgg",
+    "host": "localhost",  
+    "port": "5432",       
 }
 
 def create_table(cursor):
@@ -28,6 +28,15 @@ def retrieve_names(cursor):
     retrieve_query = "SELECT * FROM baby_names"
     cursor.execute(retrieve_query)
     return cursor.fetchall()
+
+def update_name(cursor, name, new_gender, new_year):
+    update_query = "UPDATE baby_names SET gender = %s, year = %s WHERE name = %s"
+    cursor.execute(update_query, (new_gender, new_year, name))
+
+def delete_name(cursor, name):
+    delete_query = "DELETE FROM baby_names WHERE name = %s"
+    cursor.execute(delete_query, (name,))
+
 
 def main():
     try:
