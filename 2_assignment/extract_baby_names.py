@@ -10,7 +10,7 @@ with open("baby_names.html", "r") as file:
 # Define a regular expression pattern to extract baby names
 pattern = r"Baby names: ([\w, ]+)"
 
-# Define a function to perform custom findall using regex without built-in libraries
+# Define a function to perform findall using regex
 def findall(pattern, text):
     # Create an empty list to store the matched substrings
     matches = []
@@ -36,7 +36,7 @@ def findall(pattern, text):
     # Return the list of matched substrings
     return matches
 
-# Find all matches of the pattern in the HTML content using the custom_findall function
+# Find all matches of the pattern in the HTML content using the findall function
 matches = findall(pattern, html_content)
 
 # Check if any matches were found
