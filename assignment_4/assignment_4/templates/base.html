@@ -27,4 +27,35 @@
     <script src="{% static 'js/forms.js' %}" defer></script>
     <script src="{% static 'js/profile.js' %}" defer></script>
     <script src="{% static 'js/memory.js' %}" defer></script>
-    
+
+</head>
+<body>
+
+	<header class="header">
+        <div class="logo">
+            <h1>MemoriesGallery</h1>
+        </div>
+        <div class="user-info">
+            {% if user.is_authenticated %}
+                <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+        </div>
+    </header>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/albums/">Albums</a></li>
+            <li><a href="/profile/">Profile</a></li>
+        
+        </ul>
+    </nav>
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">
+        <p>&copy; 2023 MemoriesGallery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
