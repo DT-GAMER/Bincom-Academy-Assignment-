@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="search-results-container">
+    <h2>Search Results for "{{ search_query }}"</h2>
+    <div class="search-results">
+        {% if search_results %}
+            {% for memory in search_results %}
+                <div class="search-memory">
+                    <h3>{{ memory.title }}</h3>
+                    <p>{{ memory.caption }}</p>
+                    <a href="{% url 'memory_detail' memory_id=memory.id %}" class="button">View Memory</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No search results found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}

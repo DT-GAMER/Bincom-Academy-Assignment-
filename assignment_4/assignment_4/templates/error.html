@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="error-container">
+    <h2>Error</h2>
+    <p>An error occurred while processing your request. Please try again later.</p>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/utils.css' %}">
+{% endblock %}
