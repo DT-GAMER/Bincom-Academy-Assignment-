@@ -1,0 +1,55 @@
+// _mixins.scss
+
+// Button mixin with hover effect
+@mixin button($bg-color: $primary-color, $text-color: #fff) {
+  display: inline-block;
+  padding: $spacing-unit $spacing-unit * 2;
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+// Border radius mixin
+@mixin rounded($radius: 5px) {
+  border-radius: $radius;
+}
+
+// Flex container mixin
+@mixin flex-container($direction: row, $justify: flex-start, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Box shadow mixin
+@mixin box-shadow($shadow: 0 2px 4px rgba(0, 0, 0, 0.1)) {
+  box-shadow: $shadow;
+}
+
+// Text truncation mixin
+@mixin truncate-text() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Clearfix mixin
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+

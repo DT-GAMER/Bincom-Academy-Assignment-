@@ -1,0 +1,150 @@
+/* responsive.css */
+
+/* Global responsive styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  /* Additional global responsive styles... */
+}
+
+/* Header responsive styles */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  nav ul li {
+    margin: 0 10px;
+  }
+}
+
+/* Gallery responsive styles */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item {
+    margin: 10px;
+  }
+}
+
+/* Hero section responsive styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Featured memories section responsive styles */
+@media (max-width: 768px) {
+  .featured-memories h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .memory-card h3 {
+    font-size: 14px;
+  }
+}
+
+/* Call-to-action section responsive styles */
+@media (max-width: 768px) {
+  .call-to-action .button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Album list responsive styles */
+@media (max-width: 768px) {
+  .album-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .album-card {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .album-title {
+    font-size: 20px;
+  }
+}
+
+/* Album detail responsive styles */
+@media (max-width: 768px) {
+  .album-memories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .memory-card h3 {
+    font-size: 14px;
+  }
+}
+
+/* Memory detail and edit form responsive styles */
+@media (max-width: 768px) {
+  .memory-title {
+    font-size: 20px;
+  }
+
+  .memory-caption {
+    font-size: 14px;
+  }
+
+  .memory-description {
+    font-size: 12px;
+  }
+
+  .edit-memory-form {
+    padding: 20px;
+  }
+}
+
+/* Profile page responsive styles */
+@media (max-width: 768px) {
+  .profile-header {
+    padding: 60px 0;
+  }
+
+  .profile-header h1 {
+    font-size: 28px;
+  }
+
+  .profile-header p {
+    font-size: 16px;
+  }
+
+  .profile-info {
+    padding: 20px;
+  }
+
+  .profile-info h2 {
+    font-size: 20px;
+  }
+
+  .memory-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .memory-card h3 {
+    font-size: 14px;
+  }
+}
+

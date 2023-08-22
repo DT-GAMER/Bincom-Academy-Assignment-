@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="gallery">
+    <h1>Welcome to MemoriesGallery!</h1>
+    <p>Relive your favorite memories by exploring the galleries.</p>
+    
+    <div class="albums">
+        <h2>Albums</h2>
+        <div class="album">
+            <div class="album-thumbnail">
+                <img src="{% static 'images/album1.jpg' %}" alt="Album 1">
+            </div>
+            <div class="album-info">
+                <h3>Summer Vacation</h3>
+                <p>Explore the Memories From Your Amazing Summer Trips.</p>
+                <a href="{% url 'album_detail' album_id=1 %}" class="button">View Album</a>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="memories">
+        <h2>Latest Memories</h2>
+        <div class="memory">
+            <div class="memory-thumbnail">
+                <img src="{% static 'images/memory1.jpg' %}" alt="Memory 1">
+            </div>
+            <div class="memory-info">
+                <h3>School Memories</h3>
+                <p>Explore Beautiful School Moments.</p>
+                <a href="{% url 'memory_detail' memory_id=1 %}" class="button">View Memory</a>
+            </div>
+        </div>
+        
+        <div class="memory">
+            <div class="memory-thumbnail">
+                <img src="{% static 'images/memory2.jpg' %}" alt="Memory 2">
+            </div>
+            <div class="memory-info">
+                <h3>Family Reunion</h3>
+                <p>Explore  Memorable Family Reunion With Lots of Laughter.</p>
+                <a href="{% url 'memory_detail' memory_id=2 %}" class="button">View Memory</a>
+            </div>
+        </div>
+	<div class="memory">
+            <div class="memory-thumbnail">
+                <img src="{% static 'images/memory2.jpg' %}" alt="Memory 2">
+            </div>
+            <div class="memory-info">
+                <h3>Birthday Memories</h3>
+                <p>Explore Amazing Birthday Moments.</p>
+                <a href="{% url 'memory_detail' memory_id=2 %}" class="button">View Memory</a>
+            </div>
+        </div>
+        <div class="memory">
+            <div class="memory-thumbnail">
+                <img src="{% static 'images/memory2.jpg' %}" alt="Memory 2">
+            </div>
+            <div class="memory-info">
+                <h3>Frendship Moments</h3>
+                <p>Explore Amazing Moments With Friends.</p>
+                <a href="{% url 'memory_detail' memory_id=2 %}" class="button">View Memory</a>
+            </div>
+        </div>
+        <div class="memory">
+            <div class="memory-thumbnail">
+                <img src="{% static 'images/memory1.jpg' %}" alt="Memory 1">
+            </div>
+            <div class="memory-info">
+                <h3>Work Mode</h3>
+                <p>Explore Amazing Moments At Work.</p>
+                <a href="{% url 'memory_detail' memory_id=1 %}" class="button">View Memory</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

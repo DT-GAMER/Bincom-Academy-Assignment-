@@ -1,0 +1,65 @@
+/* widgets.css */
+
+/* Button widget */
+.widget-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.widget-button:hover {
+  background-color: #0056b3;
+}
+
+/* Card widget */
+.widget-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.widget-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.widget-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Divider widget */
+.widget-divider {
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .widget-button {
+    padding: 8px 16px;
+  }
+
+  .widget-card {
+    padding: 10px;
+  }
+
+  .widget-card h3 {
+    font-size: 16px;
+  }
+
+  .widget-card p {
+    font-size: 12px;
+  }
+
+  .widget-divider {
+    margin: 10px 0;
+  }
+}
+

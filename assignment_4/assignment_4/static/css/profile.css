@@ -1,0 +1,102 @@
+/* profile.css */
+
+/* Profile header */
+.profile-header {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.profile-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.profile-header p {
+  font-size: 18px;
+}
+
+/* Profile information */
+.profile-info {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-info label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-info p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.profile-info .button {
+  @include button();
+}
+
+/* Memory list */
+.memory-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.memory-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.memory-card img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.memory-card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-header {
+    padding: 60px 0;
+  }
+
+  .profile-header h1 {
+    font-size: 28px;
+  }
+
+  .profile-header p {
+    font-size: 16px;
+  }
+
+  .profile-info {
+    padding: 20px;
+  }
+
+  .profile-info h2 {
+    font-size: 20px;
+  }
+
+  .memory-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

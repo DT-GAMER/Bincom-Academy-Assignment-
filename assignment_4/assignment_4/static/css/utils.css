@@ -1,0 +1,80 @@
+/* utils.css */
+
+/* Text alignment */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Margin and padding utilities */
+.m-0 {
+  margin: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mr-0 {
+  margin-right: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.ml-0 {
+  margin-left: 0;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.pr-0 {
+  padding-right: 0;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.pl-0 {
+  padding-left: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+  .text-center,
+  .text-left,
+  .text-right {
+    text-align: center;
+  }
+
+  .m-0,
+  .mt-0,
+  .mr-0,
+  .mb-0,
+  .ml-0,
+  .p-0,
+  .pt-0,
+  .pr-0,
+  .pb-0,
+  .pl-0 {
+    margin: 0;
+    padding: 0;
+  }
+}
+

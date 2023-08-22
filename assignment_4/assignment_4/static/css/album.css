@@ -1,0 +1,90 @@
+/* album.css */
+
+/* Album list */
+.album-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.album-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.album-card img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.album-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Album detail */
+.album-detail {
+  background-color: #f5f5f5;
+  padding: 40px 0;
+}
+
+.album-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.album-memories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.memory-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.memory-card img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.memory-card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .album-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .album-card,
+  .memory-card {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .album-title {
+    font-size: 20px;
+  }
+
+  .album-memories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .memory-card h3 {
+    font-size: 14px;
+  }
+}
+
