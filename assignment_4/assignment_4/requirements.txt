@@ -1,0 +1,8 @@
+Django
+Pillow
+django-crispy-forms
+gunicorn
+django-bootstrap4
+djanjo-allauth
+django-storages
+boto3
