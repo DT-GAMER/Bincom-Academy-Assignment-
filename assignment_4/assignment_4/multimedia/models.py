@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.utils import timezone
 
 class CustomUser(AbstractUser):
@@ -24,7 +24,7 @@ class CustomUser(AbstractUser):
         return self.liked_memories.all()
 
     class Meta:
-        db_table = 'auth_user'  # Use the same table as the default User model
+        db_table = 'custom_user'
         verbose_name = 'user'
         verbose_name_plural = 'users'
 
@@ -34,7 +34,7 @@ class CustomUser(AbstractUser):
         verbose_name='groups',
         blank=True,
         help_text='The groups this user belongs to.',
-        related_name='custom_user_set',
+        related_name='custom_users_groups',
         related_query_name='user',
     )
 
@@ -43,7 +43,7 @@ class CustomUser(AbstractUser):
         verbose_name='user permissions',
         blank=True,
         help_text='Specific permissions for this user.',
-        related_name='custom_user_set',
+        related_name='custom_users_permissions',
         related_query_name='user',
     )
 
