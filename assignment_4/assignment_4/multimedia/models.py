@@ -23,6 +23,30 @@ class CustomUser(AbstractUser):
         """
         return self.liked_memories.all()
 
+    class Meta:
+        db_table = 'auth_user'  # Use the same table as the default User model
+        verbose_name = 'user'
+        verbose_name_plural = 'users'
+
+    # Provide unique related_name values to avoid clashes
+    groups_related = models.ManyToManyField(
+        Group,
+        verbose_name='groups',
+        blank=True,
+        help_text='The groups this user belongs to.',
+        related_name='custom_user_set',
+        related_query_name='user',
+    )
+
+    user_permissions_related = models.ManyToManyField(
+        Permission,
+        verbose_name='user permissions',
+        blank=True,
+        help_text='Specific permissions for this user.',
+        related_name='custom_user_set',
+        related_query_name='user',
+    )
+
 class Album(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
