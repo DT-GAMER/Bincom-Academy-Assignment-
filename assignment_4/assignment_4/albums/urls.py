@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'albums'
+
 urlpatterns = [
     path('create/', views.album_create, name='album_create'),
     path('<int:album_id>/', views.album_detail, name='album_detail'),
