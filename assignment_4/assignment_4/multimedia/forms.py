@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
-from .models import User, Album, Memory, Comment
+from .models import CustomUser, Album, Memory, Comment
 
 class SignUpForm(UserCreationForm):
     class Meta:
@@ -10,7 +10,11 @@ class SignUpForm(UserCreationForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = CustomUser
+<<<<<<< HEAD
         fields = ('first_name', 'last_name', 'email', 'profile_image', 'about')
+=======
+        fields = ('first_name', 'last_name', 'email', 'profile_picture', 'bio')
+>>>>>>> a30f8ec (new files)
 
 class ChangePasswordForm(PasswordChangeForm):
     class Meta:
