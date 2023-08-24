@@ -26,10 +26,10 @@ def user_login(request):
             return redirect('home')
         else:
             messages.error(request, 'Invalid username or password.')
-    return render(request, 'templates/login.html'm)
+    return render(request, 'templates/login.html')
 
 def user_logout(request):
-    logout(request)pl
+    logout(request)
     messages.success(request, 'Logged out successfully.')
     return redirect('home')
 
