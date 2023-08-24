@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.utils import timezone
+from django.conf import settings
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
@@ -80,8 +81,9 @@ class Memory(models.Model):
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='memories/')
     album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='memories')
-    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='memories_uploads')
     likes = models.ManyToManyField(CustomUser, related_name='liked_memories', blank=True)
+    uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='owners')
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -123,7 +125,7 @@ class Memory(models.Model):
 class Comment(models.Model):
     text = models.TextField()
     memory = models.ForeignKey(Memory, on_delete=models.CASCADE, related_name='comments')
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='comments_loaded')
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
