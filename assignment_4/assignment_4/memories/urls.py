@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'memories'
+
 urlpatterns = [
     path('<int:album_id>/upload/', views.memory_upload, name='memory-upload'),
     path('<int:memory_id>/', views.memory_detail, name='memory-detail'),
