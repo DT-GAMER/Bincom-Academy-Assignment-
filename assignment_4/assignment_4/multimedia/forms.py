@@ -4,17 +4,17 @@ from .models import User, Album, Memory, Comment
 
 class SignUpForm(UserCreationForm):
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'email', 'profile_picture', 'bio')
+        model = CustomUser
+        fields = ('first_name', 'last_name', 'email', 'profile_image', 'about')
 
 class ChangePasswordForm(PasswordChangeForm):
     class Meta:
-        model = User
+        model = CustomUser
 
 class AlbumForm(forms.ModelForm):
     class Meta:
