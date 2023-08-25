@@ -1,9 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import CustomUserCreationForm
+from .forms import SignUpForm, UserProfileForm, ChangePasswordForm, AlbumForm, MemoryForm, CommentForm
 
-def signup(request):
+def signup_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -15,7 +16,7 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'templates/signup.html', {'form': form})
 
-def user_login(request):
+def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -28,13 +29,13 @@ def user_login(request):
             messages.error(request, 'Invalid username or password.')
     return render(request, 'templates/login.html')
 
-def user_logout(request):
+def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out successfully.')
     return redirect('home')
 
 @login_required
-def edit_profile(request):
+def edit_profile_view(request):
     user = request.user
     if request.method == 'POST':
         form = ProfileUpdateForm(request.POST, instance=user)
@@ -47,7 +48,7 @@ def edit_profile(request):
     return render(request, 'templates/profile_edit.html', {'form': form})
 
 @login_required
-def change_password(request):
+def change_password_view(request):
     user = request.user
     if request.method == 'POST':
         form = ChangePasswordForm(request.POST)
@@ -61,12 +62,12 @@ def change_password(request):
     return render(request, 'templates/change_password.html', {'form': form})
 
 @login_required
-def view_profile(request, username):
+def view_profile_view(request, username):
     user = CustomUser.objects.get(username=username)
     return render(request, 'templates/profile_view.html', {'user': user})
 
 @login_required
-def create_album(request):
+def album_create_view(request):
     if request.method == 'POST':
         form = AlbumForm(request.POST)
         if form.is_valid():
@@ -80,7 +81,7 @@ def create_album(request):
     return render(request, 'templates/album_create.html', {'form': form})
 
 @login_required
-def edit_album(request, album_id):
+def album_edit_view(request, album_id):
     album = Album.objects.get(pk=album_id)
     if album.owner != request.user:
         return redirect('profile')  # Redirect if user doesn't own the album
@@ -95,7 +96,7 @@ def edit_album(request, album_id):
     return render(request, 'templates/album_edit.html', {'form': form, 'album': album})
 
 @login_required
-def create_memory(request, album_id):
+def create_memory_view(request, album_id):
     album = Album.objects.get(pk=album_id)
     if request.method == 'POST':
         form = MemoryForm(request.POST, request.FILES)
@@ -110,20 +111,20 @@ def create_memory(request, album_id):
     return render(request, 'templates/memory_upload.html', {'form': form, 'album': album})
 
 @login_required
-def view_album(request, album_id):
+def view_album_view(request, album_id):
     album = get_object_or_404(Album, id=album_id)
     memories = Memory.objects.filter(album=album)
     return render(request, 'templates/album_detail.html', {'album': album, 'memories': memories})
 
 @login_required
-def view_memory(request, memory_id):
+def view_memory_view(request, memory_id):
     memory = get_object_or_404(Memory, id=memory_id)
     comments = memory.comments.all()
     comment_form = CommentForm()
     return render(request, 'templates/memory_detail.html', {'memory': memory, 'comments': comments, 'comment_form': comment_form})
 
 @login_required
-def edit_memory(request, memory_id):
+def memory_edit_view(request, memory_id):
     memory = get_object_or_404(Memory, id=memory_id)
     if memory.owner != request.user:
         return redirect('profile')  # Redirect if user doesn't own the memory
@@ -138,7 +139,7 @@ def edit_memory(request, memory_id):
     return render(request, 'template/memory_edit.html', {'form': form, 'memory': memory})
 
 @login_required
-def post_comment(request, memory_id):
+def post_comment_view(request, memory_id):
     memory = get_object_or_404(Memory, id=memory_id)
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -151,7 +152,7 @@ def post_comment(request, memory_id):
     return redirect('memory_detail', memory_id=memory_id)
 
 @login_required
-def like_memory(request, memory_id):
+def like_memory_view(request, memory_id):
     memory = get_object_or_404(Memory, id=memory_id)
     if memory.likes.filter(id=request.user.id).exists():
         memory.likes.remove(request.user)

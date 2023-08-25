@@ -8,6 +8,7 @@ class Memory(models.Model):
     caption = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='memories/')
+    video = models.FileField(upload_to='memories/videos/', null=True, blank=True)
     uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='owners_uploaded')
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='memories_likes', blank=True)
