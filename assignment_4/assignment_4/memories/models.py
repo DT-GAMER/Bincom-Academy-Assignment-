@@ -5,6 +5,9 @@ from albums.models import Album
 from django.conf import settings
 
 class Memory(models.Model):
+    title = models.CharField(max_length=100)
+    video = models.FileField(upload_to='memories/videos/', null=True, blank=True)
+    description = models.TextField()
     caption = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='memories/')

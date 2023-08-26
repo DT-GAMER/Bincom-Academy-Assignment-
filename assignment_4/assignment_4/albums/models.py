@@ -5,7 +5,8 @@ from django.conf import settings
 User = get_user_model()
 
 class Album(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, default='')
+    description = models.TextField(default='', blank=True)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='albums_owned')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
