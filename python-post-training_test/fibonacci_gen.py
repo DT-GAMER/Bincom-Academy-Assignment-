@@ -2,7 +2,10 @@
 
 def fibonacci_generator(n):
     """Generate the first n Fibonacci numbers"""
-    fib_series = [0, 1]
+    if n <= 0:
+        return []
+
+    fib_series = [0, 1] if n > 1 else [0]
 
     for i in range(2, n):
         next_fib = fib_series[-1] + fib_series[-2]
@@ -15,7 +18,7 @@ def get_positive_integer_input(prompt):
     while True:
         try:
             value = int(input(prompt))
-            if value <= 0:
+            if value < 0:
                 print("Please enter a positive integer.")
             else:
                 return value

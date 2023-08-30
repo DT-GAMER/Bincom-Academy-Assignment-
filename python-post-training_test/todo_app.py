@@ -3,11 +3,11 @@
 import psycopg2
 
 # Database connection parameters
-DB_NAME = "todoDB"
-DB_USER = "dtgamer"
-DB_PASSWORD = "drf64gh&-57fg32yh"
+DB_NAME = "postgres"
+DB_USER = "postgres"
+DB_PASSWORD = "Dominion2000"
 DB_HOST = "localhost"  
-DB_PORT = "5432"  
+DB_PORT = "5434"  
 
 def create_table():
     """Create the tasks table if it doesn't exist"""
